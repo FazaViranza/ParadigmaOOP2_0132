@@ -12,11 +12,11 @@ public:
     }
 };
 
-class pekerja : public orang {
+class pelajar : public orang {
 public:
-    pekerja(int pUmur) :
+    pelajar(int pUmur) :
         orang (pUmur)
     {
-        cout << "pekerja dibuat\n" << endl;
+        cout << "pelajar dibuat\n" << endl;
     }
 };
