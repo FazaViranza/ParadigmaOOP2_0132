@@ -1,39 +1,28 @@
 #include <iostream>
 using namespace std;
 
-class seseorang {
-public:
-    virtual void pesan () = 0;
-    //virtual void pesan (){
-    // cout << "Pesan dari seseorang" << endl;
-    // }
-};
+class AbstraksiKlas {
+private: string x, y;
 
-class joko :public seseorang {
 public:
-    void pesan () {
-        cout << "Pesan dari joko" << endl;
+
+    //method untuk mengisi nilai
+    //private member
+    void setXY(string a, string b) {
+        x = a;
+        y = b;
+    }
+    //menampilkan nilai
+    void display(){
+        cout << "x = " << x << endl;
+        cout << "y = " << y << endl;
     }
 };
 
-class lia :public seseorang {
-public:
-    void pesan () {
-        cout << "Pesan dari lia" << endl;
-    }
+int main() {
+    AbstraksiKlas ak;
+    ak.setXY("Yogyakarta", "Kampus");
+    ak.display();
 
-};
-
-int main(){
-    seseorang * obyek;
-    joko a;
-    lia b;
-
-    obyek = &a;
-    obyek->pesan();
-    obyek = &b;
-    obyek->pesan();
-    //a.seseorang::pesan();
-    //b.seseorang::pesan();
     return 0;
 }
