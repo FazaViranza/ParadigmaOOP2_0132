@@ -1,28 +1,30 @@
 #include <iostream>
 using namespace std;
 
-class AbstraksiKlas {
-private: string x, y;
-
+class remoteLampu {
+private:
+    string saklarNo [10];
 public:
-
-    //method untuk mengisi nilai
-    //private member
-    void setXY(string a, string b) {
-        x = a;
-        y = b;
+    void setSaklarNo (int i, string value) {
+        saklarNo[i] = value;
     }
-    //menampilkan nilai
-    void display(){
-        cout << "x = " << x << endl;
-        cout << "y = " << y << endl;
+    string getSaklarNo (int i) {
+        return saklarNo[i];
     }
 };
 
 int main() {
-    AbstraksiKlas ak;
-    ak.setXY("Yogyakarta", "Kampus");
-    ak.display();
+    remoteLampu lampuRumah;
+
+    lampuRumah.setSaklarNo(0, "Lampu Teras Rumah");
+    lampuRumah.setSaklarNo(1, "Lampu Ruang Tamu");
+    lampuRumah.setSaklarNo(2, "Lampu Kamar Tidur");
+    lampuRumah.setSaklarNo(3, "Lampu Dapur");
+
+    cout << lampuRumah.getSaklarNo(0) << endl;
+    cout << lampuRumah.getSaklarNo(1) << endl;
+    cout << lampuRumah.getSaklarNo(2) << endl;
+    cout << lampuRumah.getSaklarNo(3) << endl;
 
     return 0;
 }
