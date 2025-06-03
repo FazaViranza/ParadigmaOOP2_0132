@@ -1,30 +1,49 @@
 #include <iostream>
 using namespace std;
 
-class remoteLampu {
-private:
-    string saklarNo [10];
+class orang {
 public:
-    void setSaklarNo (int i, string value) {
-        saklarNo[i] = value;
+    int umur;
+    orang (int pUmur) :
+        umur (pUmur)
+    {
+        cout << "orang dibuat dengan umur " << umur << "\n" << endl;
     }
-    string getSaklarNo (int i) {
-        return saklarNo[i];
+};
+
+class pekerja : virtual public orang {
+public:
+    pekerja(int pUmur) :
+        orang (pUmur)
+    {
+        cout << "orang dibuat dengan umur " << umur << "\n" << endl;
+    }
+};
+
+class pelajar : virtual public orang {
+public:
+
+    pelajar (int pUmur) :
+        orang (pUmur)
+    {
+        cout << "pelajar dibuat\n" << endl;
+    }
+};
+
+class budi : public pekerja, public pelajar {
+public:
+
+    budi(int pUmur) :
+        pekerja(pUmur),
+        pelajar(pUmur),
+        orang(pUmur) //Hal ini dapat dilakukan jika menggunakan virtual
+    {
+        cout << "Budi dibuat\n" << endl;
     }
 };
 
 int main() {
-    remoteLampu lampuRumah;
-
-    lampuRumah.setSaklarNo(0, "Lampu Teras Rumah");
-    lampuRumah.setSaklarNo(1, "Lampu Ruang Tamu");
-    lampuRumah.setSaklarNo(2, "Lampu Kamar Tidur");
-    lampuRumah.setSaklarNo(3, "Lampu Dapur");
-
-    cout << lampuRumah.getSaklarNo(0) << endl;
-    cout << lampuRumah.getSaklarNo(1) << endl;
-    cout << lampuRumah.getSaklarNo(2) << endl;
-    cout << lampuRumah.getSaklarNo(3) << endl;
+    budi a(12);
 
     return 0;
 }
